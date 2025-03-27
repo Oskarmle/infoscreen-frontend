@@ -1,0 +1,10 @@
+.primary {
+  background: #365b2b;
+  color: #e4e4e4;
+  border: none;
+  padding: 10px 20px;
+  width: 180px;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 16px;
+}

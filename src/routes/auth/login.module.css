@@ -1,0 +1,91 @@
+.bg {
+  background: rgb(108, 129, 102);
+  background: linear-gradient(
+    153deg,
+    rgba(108, 129, 102, 1) 0%,
+    rgba(47, 86, 42, 1) 70%,
+    rgba(7, 28, 14, 1) 100%
+  );
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  background: #e4e4e4;
+  box-shadow: #0000007c 5px 5px 30px;
+  border-radius: 13px;
+}
+
+.loginHeader {
+  background: #365b2b;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #e4e4e4;
+  font-size: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  gap: 30px;
+  padding: 30px;
+}
+
+input {
+  border: none;
+  background: #e4e4e4;
+  border-bottom: 1px solid #3e3e3e;
+  color: #3e3e3e;
+  font-size: 20px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #3e3e3e;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #3e3e3e;
+}
+
+.line {
+  width: 80%;
+  height: 1px;
+  background: #3e3e3e;
+}
+
+.contactInfo {
+  padding: 30px;
+  font-size: 18px;
+  color: #3e3e3e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.phone,
+.email {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}

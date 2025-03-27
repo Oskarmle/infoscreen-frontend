@@ -12,7 +12,6 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
-import { Route as InfoscreenIndexImport } from './routes/infoscreen/index'
 import { Route as AuthLoginImport } from './routes/auth/Login'
 import { Route as AuthAdminIndexImport } from './routes/auth/admin/index'
 import { Route as AuthAdminCreateScreenImport } from './routes/auth/admin/createScreen'
@@ -22,12 +21,6 @@ import { Route as AuthAdminCreateScreenImport } from './routes/auth/admin/create
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const InfoscreenIndexRoute = InfoscreenIndexImport.update({
-  id: '/infoscreen/',
-  path: '/infoscreen/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,13 +60,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLoginImport
       parentRoute: typeof rootRoute
     }
-    '/infoscreen/': {
-      id: '/infoscreen/'
-      path: '/infoscreen'
-      fullPath: '/infoscreen'
-      preLoaderRoute: typeof InfoscreenIndexImport
-      parentRoute: typeof rootRoute
-    }
     '/auth/admin/createScreen': {
       id: '/auth/admin/createScreen'
       path: '/auth/admin/createScreen'
@@ -96,7 +82,6 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth/Login': typeof AuthLoginRoute
-  '/infoscreen': typeof InfoscreenIndexRoute
   '/auth/admin/createScreen': typeof AuthAdminCreateScreenRoute
   '/auth/admin': typeof AuthAdminIndexRoute
 }
@@ -104,7 +89,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth/Login': typeof AuthLoginRoute
-  '/infoscreen': typeof InfoscreenIndexRoute
   '/auth/admin/createScreen': typeof AuthAdminCreateScreenRoute
   '/auth/admin': typeof AuthAdminIndexRoute
 }
@@ -113,31 +97,19 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/auth/Login': typeof AuthLoginRoute
-  '/infoscreen/': typeof InfoscreenIndexRoute
   '/auth/admin/createScreen': typeof AuthAdminCreateScreenRoute
   '/auth/admin/': typeof AuthAdminIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/auth/Login'
-    | '/infoscreen'
-    | '/auth/admin/createScreen'
-    | '/auth/admin'
+  fullPaths: '/' | '/auth/Login' | '/auth/admin/createScreen' | '/auth/admin'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/auth/Login'
-    | '/infoscreen'
-    | '/auth/admin/createScreen'
-    | '/auth/admin'
+  to: '/' | '/auth/Login' | '/auth/admin/createScreen' | '/auth/admin'
   id:
     | '__root__'
     | '/'
     | '/auth/Login'
-    | '/infoscreen/'
     | '/auth/admin/createScreen'
     | '/auth/admin/'
   fileRoutesById: FileRoutesById
@@ -146,7 +118,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthLoginRoute: typeof AuthLoginRoute
-  InfoscreenIndexRoute: typeof InfoscreenIndexRoute
   AuthAdminCreateScreenRoute: typeof AuthAdminCreateScreenRoute
   AuthAdminIndexRoute: typeof AuthAdminIndexRoute
 }
@@ -154,7 +125,6 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthLoginRoute: AuthLoginRoute,
-  InfoscreenIndexRoute: InfoscreenIndexRoute,
   AuthAdminCreateScreenRoute: AuthAdminCreateScreenRoute,
   AuthAdminIndexRoute: AuthAdminIndexRoute,
 }
@@ -171,7 +141,6 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/auth/Login",
-        "/infoscreen/",
         "/auth/admin/createScreen",
         "/auth/admin/"
       ]
@@ -181,9 +150,6 @@ export const routeTree = rootRoute
     },
     "/auth/Login": {
       "filePath": "auth/Login.tsx"
-    },
-    "/infoscreen/": {
-      "filePath": "infoscreen/index.tsx"
     },
     "/auth/admin/createScreen": {
       "filePath": "auth/admin/createScreen.tsx"
